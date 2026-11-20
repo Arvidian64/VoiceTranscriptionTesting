@@ -72,7 +72,7 @@ def main():
     short_clips, long_clips = fleurs.load_and_filter_dataset(7,14,"en_us")
 
     # stt = sound-to-text
-    stt_model = WhisperModel(model_size_or_path="tiny", device="cuda", compute_type="int8")
+    stt_model = WhisperModel(model_size_or_path="tiny", device="cuda", compute_type="int8", vad_filter=False)
 
     wer_score = evaluate_model_against_subset(stt_model, short_clips)
 
